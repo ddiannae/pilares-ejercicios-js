@@ -1,0 +1,23 @@
+<!-- Ejercicio: Función que guarde los valores de First Name y Last Name como propiedades de un objeto y las muestre en la consola -->
+<form id="form1">
+First name: <input type="text" name="fname" id="fname" value="David"><br>
+Last name: <input type="text" name="lname" id="lname" value="Beckham"><br>
+<input type="submit" value="Submit">
+</form>
+
+<script>
+  function getFormvalue() {
+  	let cuadroName = document.getElementById("fname");
+    cuadroName.style.backgroundColor = "pink";
+  	let name = cuadroName.value;
+    //document.getElementById("fname").value
+  	let lastName = document.getElementById("lname").value;
+    let persona = {
+      nombre:name, 
+      apellido:lastName  
+    };
+    console.log(persona);
+    return false;
+  }
+document.getElementById("form1").onsubmit = getFormvalue;
+</script>

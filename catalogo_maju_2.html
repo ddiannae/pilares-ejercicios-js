@@ -1,0 +1,37 @@
+<style>
+body {
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+}
+</style>
+<form id="formulario">
+  <label for="nombreProducto">Nombre: </label>
+  <input id="nombreProducto" type="text" name="nombreProducto"> 
+  <br>
+  <label for="talla">Talla:</label>
+  <select name="talla" id="talla">
+    <option value="0M">Recién nacido</option>
+    <option value="3M">3 meses</option>
+    <option value="6M">6 meses</option>
+    <option value="9M">9 meses</option>
+    <option value="12M">12 meses</option>
+    <option value="24M">24 meses</option>
+  </select>  
+  <br>
+ <button type="button" onclick="guardarProducto()">Guardar producto</button>
+</form>
+<script>
+let catalogo = []
+
+function guardarProducto(){
+  let nombre = document.getElementById("nombreProducto").value;
+  let talla = document.getElementById("talla").value;
+  let producto={
+    nombre: nombre,
+    talla: talla
+  };
+
+  catalogo.push(producto);
+  document.getElementById("formulario").reset();
+	console.log(catalogo);
+}
+</script>

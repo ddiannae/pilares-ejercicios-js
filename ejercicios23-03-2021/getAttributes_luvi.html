@@ -1,0 +1,26 @@
+
+
+<!-- Ejercicio: Función que obtenga los atributos del link -->
+<style>
+body {
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+}
+</style>
+<p><a id="w3r" type="text/html" hreflang="en-us" rel="nofollow" target="_self" href="https://www.w3resource.com/">w3resource</a></p>
+
+<button onclick="getAttributes()">Click here to get  attributes value</button>
+
+
+<script>
+function getAttributes(){
+  let vinculo= document.getElementById("w3r"); 
+  for (let i=0;  i<vinculo.attributes.length; i ++){
+   let name=vinculo.attributes[i].nodeName
+	 let nameValue=vinculo.attributes[i].nodeValue
+console.log(name + ": " + nameValue)
+  }
+ 
+}
+
+</script>
+

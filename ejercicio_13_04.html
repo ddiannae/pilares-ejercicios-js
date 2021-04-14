@@ -1,0 +1,43 @@
+<script>
+// Problema: Identificar los valores únicos en un arreglo y contar sus apariciones
+  
+let arr = ["l", "y", "l", "e", "a", "e", "u", "i", "o", "p", "l", "y", "e", "u", "k", "r", "u", "i", "l"];
+
+// Approach 1. Comparaciones
+let frecuencias  = {};
+ 
+for (let x of arr){
+  //x = "i"
+	for (let y of arr){
+    if(x==y){
+      if(frecuencias.hasOwnProperty(x)) {
+      	frecuencias[x]+=1;
+      } else {
+        frecuencias[x]=1;
+      }
+    }
+  }
+}
+console.log(frecuencias);
+  
+let frecuencias2  = {};
+  
+for(let i=0;i<arr.length;i++){
+  // arr[i] = "i" i = 7
+  // arr[i] = "e" i = 3
+  if(!frecuencias2.hasOwnProperty(arr[i])) {
+     frecuencias2[arr[i]]=1;
+  } else {
+    continue;
+  }
+  
+  for(let j=i+1;j<arr.length; j++ ){
+   if(arr[i]==arr[j]){ 
+      frecuencias2[arr[i]]+=1;
+  	}
+  }
+}
+console.log(frecuencias2);
+// Approach 2. Ordernar
+  
+</script>

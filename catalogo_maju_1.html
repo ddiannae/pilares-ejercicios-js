@@ -1,0 +1,89 @@
+<style>
+body {
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+}
+
+.itemCategoria {
+	background-color: pink;
+  color:white;
+}
+</style>
+<form id="formulario">
+  <label for="nombreProducto">Nombre: </label>
+  <input id="nombreProducto" type="text" name="nombreProducto"> 
+  <br>
+  <label for="talla">Talla:</label>
+  <select name="talla" id="talla">
+    <option value="0M">Recién nacido</option>
+    <option value="3M">3 meses</option>
+    <option value="6M">6 meses</option>
+    <option value="9M">9 meses</option>
+    <option value="12M">12 meses</option>
+    <option value="24M">24 meses</option>
+  </select>
+    <br>
+  <label for="categoria"> Categoria:</label>
+  <select name="categoria" id="categoria">
+    <option value="vestido">Vestido</option>
+    <option value="pantalon">pantalon</option>
+    <option value="mameluco">mameluco</option>
+    <option value="pañalero">pañalero</option>
+  </select>
+    <br>
+  <label for="preciodelProducto">Precio:</label>
+  <input id= "preciodelProducto" type="text"
+         name="preciodelProducto">
+    
+  <br>
+ <button type="button" onclick="guardarProducto()">Guardar producto</button>
+</form>
+<p>Nuestros productos: </p>
+<ul id="listaCatalogo">
+</ul>
+<script>
+let catalogo = []
+
+function guardarProducto(){
+  
+  let nombre = document.getElementById("nombreProducto").value;
+  let talla = document.getElementById("talla").value;
+  let precio = document.getElementById ("preciodelProducto").value;
+  let categoria = document.getElementById("categoria").value;
+  
+  
+  let guardar = window.confirm(`¿Estás seguro que deseas guardar ${nombre} en el catálogo?` );
+  
+  if (guardar ){
+  
+    let producto={
+      nombre: nombre,
+      talla: talla,
+      preciodelProducto: precio,
+      categoria: categoria
+
+    };
+    catalogo.push(producto);
+	}
+  document.getElementById("formulario").reset();
+	mostrarCatalogo();
+}
+  
+ function mostrarCatalogo (){
+  
+   let listCatalogo = document.getElementById("listaCatalogo");
+   
+   listCatalogo.innerHTML = "";
+  
+   for (let producto of catalogo) {
+     let item = document.createElement("li");
+     //item.style.color = "blue";
+     item.classList.add("itemCategoria");
+     let texto = document.createTextNode(`El nombre del producto es:  ${producto.nombre}, la talla es: ${producto.talla}, el precio es de :  ${producto.preciodelProducto}, la categoria es:  ${producto.categoria}`);
+     item.appendChild(texto);
+     
+     listCatalogo.appendChild(item);
+   }
+ 	  
+ }  
+  
+</script>

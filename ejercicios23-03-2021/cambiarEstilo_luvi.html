@@ -1,0 +1,15 @@
+<!-- Ejercicio: Modificar el estilo del párrafo al dar click en el botón. Tamaño de fuente 14, tipo de fuente Comic Sans y color verde -->
+<p id ='text'> JavaScript Exercises - w3resource</p> 
+<div>
+<button id="jsstyle" onclick="js_style()">Style</button>
+</div>
+
+<script>
+function js_style() {
+  let text = document.getElementById("text");
+  text.style.color = 'green';
+  text.style.fontFamily = "Comic Sans MS";
+  text.style.fontSize = "14px";
+}
+
+</script>

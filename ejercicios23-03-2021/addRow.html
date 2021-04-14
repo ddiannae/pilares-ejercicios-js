@@ -1,0 +1,26 @@
+<!-- Ejercicio: Agregar una nueva fila en la tabla -->
+<style>
+body {
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+}
+</style>
+<table id="sampleTable" border="1">
+  <tr><td>Row1 cell1</td>
+  <td>Row1 cell2</td></tr>
+  <tr><td>Row2 cell1</td>
+  <td>Row2 cell2</td></tr>
+</table><br>
+<input type="button" onclick="insertRow()" value="Insert row"> 
+                                                   
+<script>
+function insertRow(){
+	let tabla = document.getElementById("sampleTable");
+  // Crea un elemento <tr></tr>
+  let renglon = tabla.insertRow(-1);
+  // Crea un elemento <td>
+  let celda1 = renglon.insertCell(0);
+  let celda2 = renglon.insertCell(1);
+  celda1.innerText = "Celda 1";
+  celda2.innerText = "Celda 2";
+}
+</script>

@@ -1,0 +1,66 @@
+<style>
+body {
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+}
+</style>
+
+<form id="formularioProducto">
+  <label for="nombre"> Nombre:</label>
+  <input type="text" name="nombre" id="nombre">
+  <label for="cantidad">Cantidad:</label> 
+  <input type="text" name="cantidad" id="cantidad"> gr <br> 
+ <label for="region">Region:</label> 
+<select id="region" name="region">
+    <option value="veracruz">Veracruz</option>
+  <option value="oaxaca">Oaxaca</option>
+  <option value="guerrero">Guerrero</option>
+  <option value="chiapas">Chiapas</option>
+</select>
+  <br>
+  <label for="precio">Precio:</label>
+  <input type="text" name="precio" id="precio"> 
+  <br>
+    <button type="button" onclick="guardarProducto()">Agregar producto 
+  </button>
+</form>
+
+<ul id="listaCatalogo">
+</ul>
+  
+<script>
+  
+ let catalogo =[];
+  
+ function guardarProducto(){
+    let nombre=
+document.getElementById("nombre").value; 
+    let cantidad = document.getElementById("cantidad").value;
+    let precio = document.getElementById("precio").value;
+    let region = document.getElementById("region").value;
+   
+   	let confirmar = window.confirm(`¿Estás seguro que quieres guardar  ${nombre}?`);
+    if(confirmar){ 
+      let producto = {
+        nombre: nombre,
+        cantidad: cantidad,
+        precio: precio,
+        region: region
+      };
+      catalogo.push(producto);
+    }
+    document.getElementById("formularioProducto").reset();
+    console.log(catalogo);
+		mostrarCatalogo();
+ }
+  
+function mostrarCatalogo(){
+  let lista = document.getElementById("listaCatalogo"); 
+  lista.innerHTML="";
+  for(let p of catalogo) {
+    let item = document.createElement("li");
+    item.innerHTML = p.nombre;
+    lista.appendChild(item);
+  }
+  
+}
+</script>

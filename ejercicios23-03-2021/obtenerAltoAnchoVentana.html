@@ -1,0 +1,19 @@
+<!-- Ejercicio: Obtener el alto y ancho de la ventana -->
+<style>
+body {
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+}
+</style>
+
+<body onload="obtenertamaño()" onresize="obtenertamaño()">
+  <div id="tam"></div>
+</body>
+
+<script>
+ function obtenertamaño (){
+   let ancho = document.documentElement.clientWidth
+   let alto = document.documentElement.clientHeight;
+   document.getElementById ("tam").innerText = `Ancho: ${ancho}, Alto:${alto}`
+   //document.getElementById ("tam").innerText = "Ancho:" + ancho + ", alto:" +  alto
+ }
+</script>

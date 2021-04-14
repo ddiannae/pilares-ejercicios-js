@@ -1,0 +1,28 @@
+<!-- Ejercicio: Cambiar el contenido de una celda dada su fila y columna -->
+<style>
+body {
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+}
+</style>
+
+<table id="myTable" border="1"> 
+<tr><td>Row1 cell1</td> 
+<td>Row1 cell2</td></tr> 
+<tr><td>Row2 cell1</td> 
+<td>Row2 cell2</td></tr> 
+<tr><td>Row3 cell1</td> 
+<td>Row3 cell2</td></tr> 
+</table><form> 
+<input type="button" onclick="changeContent()" value="Change content"> 
+
+<script>
+function changeContent(){
+
+let fila = window.prompt("dime el indice de la fila (0,1,2)");
+let columna = window.prompt ("dime el indice de la columna (0, 1)");
+let contenido = window.prompt("dame el contenido de la celda");
+let tabla = document.getElementById("myTable")
+tabla.rows[parseInt(fila)].cells[parseInt(columna)].innerText = contenido;
+
+}
+</script>
