@@ -38,6 +38,50 @@ for(let i=0;i<arr.length;i++){
   }
 }
 console.log(frecuencias2);
+
 // Approach 2. Ordernar
+arr.sort();
+let frecuencias3 = {};
+let conteo = 0;
+for(let i=0;i<arr.length;i++){
+  if(arr[i]==arr[i+1]){
+    conteo+=1;
+  }
+  else {
+  	frecuencias3[arr[i]]=conteo+1;
+    conteo=0;
+  }
+}
+ console.log(frecuencias3);
+/*
+i = 0, arr[i] = "a", arr[i+1] = "e", conteo = 1, else
+i = 1, arr[i] = "e", arr[i+1] = "e", conteo = 1, if
+i = 2, arr[i] = "e", arr[i+1] = "e", conteo = 2, if
+i = 3, arr[i] = "e", arr[i+1] = "1", conteo = 2, else
+i = 18, arr[i] = "y", arr[i+1] = undefined, conteo = 1, else
+*/
+ 
+  
+arr = ["l", "y", "l", "e", "a", "e", "u", "i", "o", "p", "l", "y", "e", "u", "k", "r", "u", "i", "l"];
+//Approach 3. Iterar sobre el arreglo una vez 
+let frecuencias4 = {};
+for (let x of arr) {
+    if (frecuencias4.hasOwnProperty(x)) {
+      frecuencias4 [x]+=1;
+    } else {
+    	frecuencias4 [x]=1	
+    }
+ }
+ console.log(frecuencias4);
+ /*
+ x = "l", frecuencias4.hasOwnProperty(x) = false, else, 	frecuencias4[x]=1
+x = "y", frecuencias4.hasOwnProperty(x) = false, else, 	frecuencias4[x]=1
+x = "l", frecuencias4.hasOwnProperty(x) = true, if, 	frecuencias4[x]=2
+ */
+let carro = {
+  marca: "tsuru",
+  marca: "chevi"
+}
+console.log(carro);
   
 </script>
