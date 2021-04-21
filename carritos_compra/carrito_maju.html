@@ -97,13 +97,31 @@
                         frecuencias[prod] = 1;
                     }
                 }
-                for (let idprod in frecuencias) {
+                for (prodSeleccionado in frecuencias) {
                     let item = document.createElement("li");
                     item.classList.add("list-group-item", "text-right", "mx-2");
-                    item.textContent = `${baseDeDatos[idprod-1].nombre} x ${frecuencias[idprod]}`;
+                    let productosID = baseDeDatos.filter(compararID);
+                    item.textContent = `${productosID[0].nombre} x ${frecuencias[prodSeleccionado]}`;
+                    let boton = document.createElement("button");
+                    boton.classList.add("btn", "btn-danger", "mx-5");
+                    boton.textContent = "x";
+                    boton.dataset.item = prodSeleccionado;
+                    boton.addEventListener('click', eliminarProducto);
+                    item.appendChild(boton);
                     document.getElementById("carrito").appendChild(item);
                 }
                 console.log(frecuencias);
+            }
+
+            let IDeliminar;
+            function eliminarProducto (evento)
+            {IDeliminar = evento.target.dataset.item
+            carrito = carrito.filter (eliminardelCarrito) 
+            mostrarCarrito()
+            }
+        
+            function eliminardelCarrito (eliminarID){
+                return (eliminarID != IDeliminar)
             }
 
             function vaciarCarrito() {
