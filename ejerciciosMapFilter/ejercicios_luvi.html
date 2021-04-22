@@ -1,0 +1,43 @@
+<script>
+let frutas = ["naranja", "platano", "kiwi", "guayaba", "durazno", "sandia", 
+              "mandarina", "toronja", "guanaba", "melon", "fresa"];
+  
+function filtrandoCantidad(nombre){
+  return nombre.length>5;
+}
+console.log(frutas.filter(filtrandoCantidad));
+let frutas2 = frutas.filter(filtrandoCantidad)  
+console.log(frutas2);
+console.log(filtrandoCantidad("casa"));
+console.log(filtrandoCantidad("perritos"));
+
+console.log("naranja".indexOf("b"));
+console.log("naranja".indexOf("a"));
+console.log("naranja".lastIndexOf("a"));
+
+console.log("fresa".lastIndexOf("a"));
+console.log("fresa".indexOf("a"));  
+
+function tieneLetra(fruta){
+  return !(fruta.lastIndexOf("a") == fruta.indexOf("a"));
+}
+/*
+     	lastIndexOf("a") indexOf("a")   ==     !=      !(==)
+ fresa  4  						4	              V       F       F
+naranja  6  				  1	              F       V       V
+
+*/
+console.log(tieneLetra("fresa"));
+console.log(tieneLetra("naranja"));
+  
+console.log(frutas.filter(tieneLetra));
+
+function regresaTamanio(palabra) {
+  console.log(palabra);
+  return palabra.length
+}
+console.log(regresaTamanio("fresa"));
+console.log(frutas.map(regresaTamanio));
+console.log(frutas.forEach(regresaTamanio));  
+ 
+</script>
