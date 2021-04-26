@@ -1,0 +1,51 @@
+<script>
+	let arr = ["jirafa", "elefante", "gato", "perro", "lombriz",  "gato", "jirafa","lombriz", "leon",  "elefante", "jirafa", "lombriz","gato"];
+
+ let frecuencias = {};
+ 
+ // Solucion 1. Nos da los cuadrados de los valores correctos
+ for (let value of arr){
+		if(!frecuencias.hasOwnProperty(value)) {
+       frecuencias[value] = 0;
+     }
+    for(let value2 of arr){
+      if (value == value2){
+        frecuencias[value2] += 1;
+      }
+    }
+ }
+ /*
+ value = "jirafa" value2 = "jirafa"
+ value = "jirafa" value2 = "elefante"
+ value = "jirafa" value2 = "gato"
+ */
+  console.log(frecuencias);
+ 
+ let frecuencias2 = {};
+ // Solucion 2. 
+ for (let i= 0; i < arr.length; i++){
+   if(!frecuencias2.hasOwnProperty(arr[i])) {
+       frecuencias2[arr[i]] = 1;
+     }
+    for (let j= i+1; j< arr.length; j++){
+      if (arr[i]==arr[j]){
+        frecuencias2[arr[i]] += 1;
+      }
+    }
+}
+/*
+i = 0 arr[i] = "jirafa" j=1 arr[j] = "elefante"
+*/
+console.log(frecuencias2);
+  
+let frecuencias3 = {};
+for(value of arr) {
+	if(!frecuencias3.hasOwnProperty(value)) {
+       frecuencias3[value] = 0;
+  }
+  frecuencias3[value] +=1;
+}
+console.log(frecuencias3);
+ 
+
+</script>
